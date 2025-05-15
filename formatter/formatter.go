@@ -1,20 +1,31 @@
 package formatter
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
+
+func Cube(n int) int {
+	return n*n
+}
 
 const (
     Reset   = "\033[0m"
-    Red     = "\033[31m"
-    Green   = "\033[32m"
-    Yellow  = "\033[33m"
-    Blue    = "\033[34m"
-    Magenta = "\033[35m"
-    Cyan    = "\033[36m"
+    C    = "\033[36m"
+    M = "\033[35m"
+    Y  = "\033[33m"
+    R     = "\033[31m"
+    G   = "\033[32m"
+    B    = "\033[34m"
 )
 
 func Format(op string, in, out int) string {
     return fmt.Sprintf("%s%s%s of %s%d%s = %s%d%s",
-        Blue, op, Reset,
-        Yellow, in, Reset,
-        Green, out, Reset)
+        B, op, Reset,
+        Y, in, Reset,
+        G, out, Reset)
+}
+
+func Trim(s string) string {
+  return strings.TrimSpace(s)
 }
